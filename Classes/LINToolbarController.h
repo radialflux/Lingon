@@ -17,10 +17,10 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 @interface LINToolbarController : NSObject {
 
-	NSToolbarItem *saveToolbarItem;
+	NSToolbarItem *__strong saveToolbarItem;
 }
 
-@property (assign) NSToolbarItem *saveToolbarItem;
+@property (strong) NSToolbarItem *saveToolbarItem;
 
 + (LINToolbarController *)sharedInstance;
 

@@ -159,7 +159,7 @@ static id sharedInstance = nil;
 - (void)openPanelDidEnd:(NSOpenPanel *)panel returnCode:(int)returnCode contextInfo:(void *)contextInfo
 {
 	if (returnCode == NSOKButton) {
-		NSInteger tag = [(id)contextInfo tag];
+		NSInteger tag = [(__bridge id)contextInfo tag];
 	
 		NSMutableString *path = [NSMutableString stringWithString:[[panel filenames] objectAtIndex:0]];
 		

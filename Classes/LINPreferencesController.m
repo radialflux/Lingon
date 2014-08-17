@@ -44,8 +44,8 @@ static id sharedInstance = nil;
 	NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
 	[dictionary setValue:[NSNumber numberWithInteger:LINListSizeSmall] forKey:@"ListFontSize"];
 	[dictionary setValue:[NSNumber numberWithBool:NO] forKey:@"CheckForUpdatesAtStartup"];
-	[dictionary setValue:[NSNumber numberWithBool:YES] forKey:@"WarnAboutSystemFiles"];
-	[dictionary setValue:[NSNumber numberWithBool:YES] forKey:@"InformAboutWhatIsNeededAfterSave"];
+	[dictionary setValue:[NSNumber numberWithBool:NO] forKey:@"WarnAboutSystemFiles"];
+	[dictionary setValue:[NSNumber numberWithBool:NO] forKey:@"InformAboutWhatIsNeededAfterSave"];
 	[dictionary setValue:[NSArchiver archivedDataWithRootObject:[NSFont fontWithName:@"Monaco" size:11]] forKey:@"TextFont"];
 	[dictionary setValue:[NSHomeDirectory() stringByAppendingPathComponent:@"Desktop"] forKey:@"LastDirectory"];
 	[dictionary setValue:[NSNumber numberWithInteger:LINCheckForUpdatesNever] forKey:@"CheckForUpdatesInterval"];
@@ -60,7 +60,7 @@ static id sharedInstance = nil;
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-	if ([(NSString *)context isEqualToString:@"ListFontSizeChanged"]) {
+	if ([(__bridge NSString *)context isEqualToString:@"ListFontSizeChanged"]) {
 		[[LINInterface plistsOutlineView] reloadData];
 		
 	} else {
@@ -79,8 +79,8 @@ static id sharedInstance = nil;
 
 - (IBAction)resetAllWarningsAction:(id)sender
 {
-	[LINDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"WarnAboutSystemFiles"];
-	[LINDefaults setValue:[NSNumber numberWithBool:YES] forKey:@"InformAboutWhatIsNeededAfterSave"];
+	[LINDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"WarnAboutSystemFiles"];
+	[LINDefaults setValue:[NSNumber numberWithBool:NO] forKey:@"InformAboutWhatIsNeededAfterSave"];
 }
 
 

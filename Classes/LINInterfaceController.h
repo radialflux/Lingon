@@ -38,8 +38,8 @@ Unless required by applicable law or agreed to in writing, software distributed 
 	
 	IBOutlet NSPopUpButton *insertParameterPopUp;
 	
-	NSImage *validIcon;
-	NSImage *notValidIcon;
+	NSImage *__strong validIcon;
+	NSImage *__strong notValidIcon;
 	
 	NSArray *insertParametersArray;
 	
@@ -64,12 +64,12 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 @property (readonly) IBOutlet NSPopUpButton *insertParameterPopUp;
 
-@property (assign) NSImage *validIcon;
-@property (assign) NSImage *notValidIcon;
+@property (strong) NSImage *validIcon;
+@property (strong) NSImage *notValidIcon;
 
 @property (readonly) IBOutlet NSButton *modeButton;
 
-@property (assign) NSArray *insertParametersArray;
+@property  NSArray *insertParametersArray;
 
 + (LINInterfaceController *)sharedInstance;
 

@@ -69,7 +69,7 @@ static id sharedInstance = nil;
 		return NO;
 	}
 	
-	if ([[LINDefaults valueForKey:@"InformAboutWhatIsNeededAfterSave"] boolValue] == YES) {
+	if ([[LINDefaults valueForKey:@"InformAboutWhatIsNeededAfterSave"] boolValue] == NO) {
 		[LINVarious standardAlertSheetWithMessage:NSLocalizedString(@"You need to restart or logout for changes to apply", @"You need to restart or logout for changes to apply") informativeText:NSLocalizedString(@"In order for any changes to be applied properly and for it to run as the correct user you need to restart your computer or just logout if you know that that is enough", @"In order for any changes to be applied properly and for it to run as the correct user you need to restart your computer or just logout if you know that that is enough") suppressionString:@"InformAboutWhatIsNeededAfterSave"];
 	}
 	
